@@ -250,7 +250,7 @@ static QLinearGradient titlebarGradientInactive()
     are anyway adjusted during the rendering and they are not exactly what you'll see on
     the screen. Thus this switch-statement inside.
 */
-static void clipTabBarFrame(const QStyleOption *option, const QMacStyle *style, CGContextRef ctx)
+[[maybe_unused]] static void clipTabBarFrame(const QStyleOption *option, const QMacStyle *style, CGContextRef ctx)
 {
     Q_ASSERT(option);
     Q_ASSERT(style);
@@ -368,19 +368,19 @@ static const int headerSectionArrowHeight = 6;
 static const int headerSectionSeparatorInset = 2;
 
 // One for each of QStyleHelper::WidgetSizePolicy
-static const QMarginsF comboBoxFocusRingMargins[3] = {
+[[maybe_unused]] static const QMarginsF comboBoxFocusRingMargins[3] = {
     { 0.5, 2, 3.5, 4 },
     { 0.5, 1, 2.5, 4 },
     { 0.5, 1.5, 2.5, 3.5 }
 };
 
-static const QMarginsF pullDownButtonShadowMargins[3] = {
+[[maybe_unused]] static const QMarginsF pullDownButtonShadowMargins[3] = {
     { 0.5, -1, 0.5, 2 },
     { 0.5, -1.5, 0.5, 2.5 },
     { 0.5, 0, 0.5, 1 }
 };
 
-static const QMarginsF pushButtonShadowMargins[3] = {
+[[maybe_unused]] static const QMarginsF pushButtonShadowMargins[3] = {
     { 1.5, -1.5, 1.5, 4.5 },
     { 1.5, -1, 1.5, 4 },
     { 1.5, 0.5, 1.5, 2.5 }
@@ -498,7 +498,7 @@ static bool setupSlider(NSSlider *slider, const QStyleOptionSlider *sl)
     return true;
 }
 
-static bool isInMacUnifiedToolbarArea(QWindow *window, int windowY)
+[[maybe_unused]] static bool isInMacUnifiedToolbarArea(QWindow *window, int windowY)
 {
     QPlatformNativeInterface *nativeInterface = QGuiApplication::platformNativeInterface();
     QPlatformNativeInterface::NativeResourceForIntegrationFunction function =
@@ -511,7 +511,7 @@ static bool isInMacUnifiedToolbarArea(QWindow *window, int windowY)
 }
 
 
-static void drawTabCloseButton(QPainter *p, bool hover, bool selected, bool pressed, bool documentMode)
+[[maybe_unused]] static void drawTabCloseButton(QPainter *p, bool hover, bool selected, bool pressed, bool documentMode)
 {
     p->setRenderHints(QPainter::Antialiasing);
     QRect rect(0, 0, closeButtonSize, closeButtonSize);
@@ -1101,7 +1101,7 @@ static QSize qt_aqua_get_known_size(QStyle::ContentsType ct, const QStyleOption 
 }
 
 #if defined(QMAC_QAQUASTYLE_SIZE_CONSTRAIN) || defined(DEBUG_SIZE_CONSTRAINT)
-static QStyleHelper::WidgetSizePolicy qt_aqua_guess_size(
+[[maybe_unused]] static QStyleHelper::WidgetSizePolicy qt_aqua_guess_size(
         const QSize &large,
         const QSize &small,
         const QSize &mini)
@@ -4099,7 +4099,7 @@ void QMacStyle::drawControl(ControlElement ce, const QStyleOption *opt, QPainter
         }
         break;
     case CE_ToolBar: {
-        const QStyleOptionToolBar *toolBar = qstyleoption_cast<const QStyleOptionToolBar *>(opt);
+        //const QStyleOptionToolBar *toolBar = qstyleoption_cast<const QStyleOptionToolBar *>(opt);
         const bool isDarkMode = qt_mac_applicationIsInDarkMode();
 
         // Unified title and toolbar drawing. In this mode the cocoa platform plugin will
@@ -4696,9 +4696,9 @@ void QMacStyle::drawComplexControl(ComplexControl cc, const QStyleOptionComplex 
                 QMacStylePrivate::scrollBars.append(QPointer<QObject>(opt->styleObject));
 
             static const CGFloat knobWidths[] = { 7.0, 5.0, 5.0 };
-            static const CGFloat expandedKnobWidths[] = { 11.0, 9.0, 9.0 };
+            //static const CGFloat expandedKnobWidths[] = { 11.0, 9.0, 9.0 };
             const auto cocoaSize = d->effectiveAquaSizeConstrain(opt);
-            const CGFloat maxExpandScale = expandedKnobWidths[cocoaSize] / knobWidths[cocoaSize];
+            //const CGFloat maxExpandScale = expandedKnobWidths[cocoaSize] / knobWidths[cocoaSize];
 
             const bool isTransient = proxy()->styleHint(SH_ScrollBar_Transient, opt);
 //            if (!isTransient)
